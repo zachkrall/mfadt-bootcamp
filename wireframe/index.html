@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
 
-    <title>Title</title>
+    <title>Zach Krall</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -16,53 +16,103 @@
   <nav>
     <h1>Zach Krall</h1>
     <ul>
-      <li>Page One</li>
-      <li>Page Two</li>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./info.html">Information</a></li>
+      <li><a href="#" onclick="alert('oops ¯\\_(ツ)_/¯');">Blog</a></li>
     </ul>
   </nav>
 
   <div id="slideshow">
-    <div class="slide" style="background-image:url(http://1.bp.blogspot.com/-ekhKVXl7xto/T6-2WZMYpTI/AAAAAAAAGiQ/ioOs_2BfXPA/s1600/Images+for+Dog+:++Wallpaper+:+Cute+:+Funny+:+Beautiful+Puppies8.jpg);"></div>
-    <div class="slide" style="background-image:url(http://2.bp.blogspot.com/-CaGpPx6iu5c/TtcSbSixNrI/AAAAAAAADic/JmQyo3H_DdM/s1600/Cute-White-Puppies-04.jpg);"></div>
-    <div class="slide">Slide Three</div>
-    <div class="slide">Slide Four</div>
+    <div class="slide" style="background-image:url('./img/01.jpg');">
+
+    </div>
+    <div class="slide" style="background-image:url('./img/02.jpg');">
+      <h2>New Event</h2>
+      <a class="cta" href="#" onclick="alert('omg you clicked me! thanks')">RSVP</a>
+    </div>
+    <div class="slide" style="background-image:url('./img/03.jpg');">
+
+    </div>
+    <div class="slide" style="background-image:url('./img/04.jpg');">
+
+    </div>
+  </div>
+
+  <main class="projects">
+
+  <div id="projectFilter">
+  <ul>
+    <li><button>Everything</button></li>
+    <li><button>Photography</button></li>
+    <li><button class="active">Installation</button></li>
+    <li><button>GIF</button></li>
+  </ul>
   </div>
 
   <div id="projects">
 
-    <div class="projectCard">
+    <a href="./project.html" class="projectCard">
       <div class="thumbnail"></div>
       <div class="desc">
         <h1>Title of Project</h1>
         <p>About the project goes here</p>
       </div>
-    </div>
+    </a>
 
-    <div class="projectCard">
+    <a href="./project.html" class="projectCard">
       <div class="thumbnail"></div>
       <div class="desc">
         <h1>Title of Project</h1>
         <p>About the project goes here</p>
       </div>
-    </div>
+    </a>
 
-    <div class="projectCard">
+    <a href="./project.html" class="projectCard">
       <div class="thumbnail"></div>
       <div class="desc">
         <h1>Title of Project</h1>
         <p>About the project goes here</p>
       </div>
-    </div>
+    </a>
 
-    <div class="projectCard">
+    <a href="./project.html" class="projectCard">
       <div class="thumbnail"></div>
       <div class="desc">
         <h1>Title of Project</h1>
         <p>About the project goes here</p>
       </div>
-    </div>
+    </a>
 
   </div>
+
+  </main>
+
+  <div id="mailing-list">
+
+    <form>
+      <input type="text" placeholder="Your Email">
+      <input type="submit" value="Subscribe" class="btn">
+    </form>
+
+  </div>
+
+  <footer>
+    <div>
+      <b>Follow</b>
+      <ul class="clean">
+        <li><a href="https://twitter.com/zachkrall">Twitter</a></li>
+        <li><a href="https://instagram.com/zachkrall">Instagram</a></li>
+        <li><a href="https://are.na.com/zach-krall">Are.na</a></li>
+        <li><a href="https://github.com/zachkrall">GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      Column Two
+    </div>
+    <div>
+      <a href="#">Legal</a> / <a href="#">Privacy</a>
+    </div>
+  </footer>
 
   <script type="text/javascript" src="js/app.js"></script>
 

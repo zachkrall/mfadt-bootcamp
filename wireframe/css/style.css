@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+/* @import url('//brick.freetls.fastly.net/TeX+Gyre+Heros:400,700');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono'); */
+
 @font-face{
   font-family: 'Font';
   src: url('fonts/regular.ttf');
@@ -21,10 +24,48 @@ html{
   --padding-section: calc(var(--padding) * 1.2 );
   --padding-element: calc(var(--padding) / 2);
 
+  --text: #1d1d1d;
+  --gray: #999999;
+  /* --primary: #0045FF; */
+  --primary: #1d1d1d;
+  --bg:   #fafafa;
+
+  --radius: 3rem;
+
+  --shadow: 0px 0px 5px rgba(140,140,140,0.2);
+
 }
 
 body{
-  font-family: 'Font', sans-serif;
+
+  background-color: var(--bg);
+
+  font-family: 'Font', 'San Francisco', -apple-system, 'Helvetica', Arial, sans-serif;
+  line-height: 1.5;
+
+  color: var(--text);
+
+}
+
+a, a:link, a:visited, a:active{
+  color: var(--gray);
+  border-bottom:0px;
+  text-decoration:none;
+}
+a:hover{
+  color: var(--primary);
+  border-bottom:2px solid var(--primary);
+}
+
+input,button,textarea{
+  -webkit-appearance:none;
+  border:0px;
+  background-color:transparent;
+  font-size:inherit;
+}
+
+ul.clean li{
+  list-style:none;
 }
 
 /* NAV */
@@ -33,7 +74,9 @@ nav{
   position:fixed;
   top:0;left:0;
 
-  z-index:9999;
+  z-index:9999999;
+
+  background: var(--bg);
 
   display: flex;
   justify-content: space-between;
@@ -41,10 +84,13 @@ nav{
 
   width:100%;
 
-  padding: var(--padding-section)
+  padding: calc(var(--padding) / 1.5) var(--padding-section);
+
+  box-shadow: var(--shadow);
 }
 nav > *{
   font-size:inherit;
+  font-weight:normal;
 }
 nav ul{
   display:inline;
@@ -54,14 +100,23 @@ nav ul li{
   margin-left: var(--padding-element);
 }
 nav ul li a{
-  color: inerhit;
+  color: var(--text);
   text-decoration: none;
+}
+nav ul li a:hover{
+  color: var(--text);
+  border-bottom:2px solid var(--text);
+}
+
+nav h1{
+
 }
 
 /* SLIDESHOW */
 #slideshow{
   display:block;
-  height: 80vh;
+  height: 50vh;
+  min-height:600px;
   position:relative;
 
   background:#ccc;
@@ -75,6 +130,8 @@ nav ul li a{
   align-items: center;
   justify-content: center;
 
+  flex-direction:column;
+
   opacity: 0.0;
   transition: all ease 0.7s;
 
@@ -84,51 +141,200 @@ nav ul li a{
 .slide.active{
   opacity: 1.0;
   transition: all ease 0.7s;
+  z-index: 10;
+}
+
+.slide > *{
+  margin: calc( var(--padding-element) / 1.5);
+}
+.slide h2{
+  color: var(--bg);
+  text-shadow: var(--shadow);
 }
 
 #slidecounter{
   position:absolute;
-  top:0;left:0;
+  top:0;left:var(--padding-section);
   width:4rem;height:100%;
   display:flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
+
+  z-index:9999;
 }
 .indicator{
   width:1rem;height:1rem;
-  border:1pt solid black;
+  border:1pt solid var(--bg);
   border-radius:2rem;
   margin:calc(var(--padding-element)/3) 0;
   transition: all ease 0.7s;
 }
 .indicator.active{
-  background:#000;
+  background:var(--bg);
   transition: all ease 0.7s;
 }
 
+a.cta {
+  display:inline-block;
+  background-color: var(--bg);
+  padding: var(--padding-element) var(--padding);
+
+  border:0;
+  border-radius: var(--radius);
+
+  color: var(--text);
+  /* border:2px solid var(--text); */
+
+  text-decoration:none;
+
+  box-shadow: var(--shadow);
+
+}
+a.cta:hover{
+  background-color: var(--text);
+  color: var(--bg);
+  border:0;
+}
+
+main{
+  padding:calc( var(--padding-section) * 2) var(--padding-section);
+}
+
+main.projects{
+  display:grid;
+  grid-template-columns: 1fr 4fr;
+  position:relative;
+}
+
+main.projectPage{
+  max-width:900px;
+  margin:auto;
+}
+main.projectPage div#projectPage_header{
+  margin-top:calc( var(--padding-section) * 2);
+  margin-bottom:var(--padding-section);
+}
+main.projectPage div#projectPage_header span{
+  color:var(--gray);
+}
+main.projectPage div.projectPage_description{
+  padding: var(--padding-section) 0;
+}
+main.projectPage div.projectPage_description p{
+  -webkit-columns: 2;
+     -moz-columns: 2;
+          columns: 2;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+main.projectPage dl{
+  margin-top:var(--padding-section);
+}
+main.projectPage dt{
+  text-transform:uppercase;
+  font-size:0.8em;
+}
+main.projectPage dd{
+  margin-bottom:var(--padding);
+}
+
 #projects{
-  padding: var(--padding-section);
+  /* padding: var(--padding-section); */
 
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: var(--padding-section);
+  grid-column-gap: calc( var(--padding-section) * 2);
   grid-row-gap: var(--padding-section);
+
+  /* min-height:200vh; */
 }
 
-.projectCard{
+a.projectCard{
 
   display:inline-block;
   /* box-shadow:0px 0px 30px rgba(0,0,0,0.1); */
-
+  color:var(--text);
+  text-decoration:none;
+  border:0;
+}
+.projectCard:hover{
+  transform:scale(1.05);
+  transition:all ease 0.3s;
+  border:0;
 }
 .projectCard .thumbnail{
   background:#eee;
   min-height:100px;
 }
 .projectCard .desc{
-  padding:1rem;
+  padding:1rem 0;
 }
 .projectCard h1{
   font-size:inherit;
+}
+
+#projectFilter{
+  /* width:300px; */
+  padding: 0 var(--padding-section) var(--padding-section) 0;
+  /* background:pink; */
+}
+#projectFilter ul {
+  list-style:none;
+  font-size:0.9em;
+}
+#projectFilter ul li{
+  margin-bottom:1rem;
+  font-size:1rem;
+}
+#projectFilter ul li button{
+  color: var(--gray);
+}
+#projectFilter ul li button.active{
+  color: var(--text);
+  font-weight:bold;
+  border-bottom:2px solid var(--text);
+}
+#projectFilter ul li button:hover{
+  color: var(--text);
+}
+
+#mailing-list{
+  /* background:orange; */
+  padding:var(--padding-section);
+  text-align:center;
+  padding: var(--padding-section) 0 calc( var(--padding-section) * 2) var(--padding-section);
+}
+#mailing-list h2{
+  margin-bottom:1em;
+}
+#mailing-list form input{
+  font-size:1rem;
+  border-radius:var(--radius);
+  padding: var(--padding-element) var(--padding);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+#mailing-list form input[type='submit']{
+  background-color:var(--gray);
+  color:var(--bg);
+  transition:all ease 0.3s;
+}
+#mailing-list form input[type='submit']:hover{
+  background-color:var(--text);
+  color:var(--bg);
+}
+
+footer{
+
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--padding-section) var(--padding-section) calc( var(--padding-section) * 4) var(--padding-section);
+
+}
+
+details{
+  margin:1rem;
+  transition:all ease 0.3s;
 }
